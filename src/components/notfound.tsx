@@ -8,7 +8,7 @@ export default function NotFound() {
             Oops! Looks like something going wrong.
           </p>
           <p className="mt-2 text-sm text-gray-500">
-            Page cannot be found! We'll have it figured out in no time. Meanwhile, check out these fresh ideas:
+            Page cannot be found! Well have it figured out in no time. Meanwhile, check out these fresh ideas:
           </p>
           <button
         
