@@ -41,7 +41,7 @@ const ChoosePickComponent = () => {
           </div>
           <div className="absolute w-full h-full top-0 left-0 z-10">
             <Image
-              src="/manu.svg" // replace with your image path
+              src="/manu.svg" 
               alt="/manu"
               width={515}
               height={203}

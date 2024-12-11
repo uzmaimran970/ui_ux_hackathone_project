@@ -17,7 +17,7 @@ export default function FoodCategory() {
     
       }}
     >
-      <h1 className={`text-[24px] md:text-[32px] font-normal leading-[30px] md:leading-[40px] text-white ${greatVibes.className}`}>
+      <h1 className={`text-[24px] md:text-[32px] font-normal leading-[30px] md:leading-[40px] text-[#FF9F0D] ${greatVibes.className}`}>
         Food Category
       </h1>
       <h2 className="text-[32px] md:text-[48px] font-bold leading-[40px] md:leading-[56px] text-white text-center">

@@ -30,15 +30,15 @@ export default function Header2() {
           </p>
           <div className="flex flex-col gap-2 mt-4">
             <p className="flex items-center text-[16px] md:text-[18px] leading-[22px] md:leading-[26px]">
-              <span className="mr-2">✔</span> Lacus nisi, et ac dapibus sit eu
+              <span className="mr-2">{'\u2714'}</span> Lacus nisi, et ac dapibus sit eu
               velit in consequat.
             </p>
             <p className="flex items-center text-[16px] md:text-[18px] leading-[22px] md:leading-[26px]">
-              <span className="mr-2">✔</span> Lorem ipsum dolor sit amet,
+              <span className="mr-2">{'\u2714'}</span> Lorem ipsum dolor sit amet,
               consectetur adipiscing elit.
             </p>
             <p className="flex items-center text-[16px] md:text-[18px] leading-[22px] md:leading-[26px]">
-              <span className="mr-2">✔</span> Proin nec lacus nisi. Aenean nec
+              <span className="mr-2">{'\u2714'}</span> Proin nec lacus nisi. Aenean nec
               dapibus mauris.
             </p>
           </div>
@@ -75,5 +75,7 @@ export default function Header2() {
         </div>
       </div>
     </div>
+
+    
   );
 }
