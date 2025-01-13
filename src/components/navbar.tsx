@@ -40,15 +40,15 @@ const Navbar = () => {
           <Link href="/" className="block px-4 lg:px-0 hover:text-[#FF9F0D]">Home</Link>
           <Link href="/manu" className="block px-4 lg:px-0 hover:text-[#FF9F0D]">Menu</Link>
           <Link href="/signup" className="block px-4 lg:px-0 hover:text-[#FF9F0D]">contact</Link>
-          <div className="group relative block px-4 lg:px-0">
+          {/* <div className="group relative block px-4 lg:px-0">
             <button className="hover:text-[#FF9F0D]">Pages</button>
             
             <div className="absolute hidden group-hover:block bg-gray-800 text-white rounded shadow-lg mt-2">
               <Link href="/signup" className="block px-4 py-2 hover:bg-gray-700">page1</Link>
               <Link href="/page2" className="block px-4 py-2 hover:bg-gray-700">Page 2</Link>
             </div>
-          </div>
-          <Link href="/about" className="block px-4 lg:px-0 hover:text-[#FF9F0D]">About</Link>
+          </div> */}
+          <Link href="/blog" className="block px-4 lg:px-0 hover:text-[#FF9F0D]">Blog</Link>
           <Link href="/ourshef" className="block px-4 lg:px-0 hover:text-[#FF9F0D]">Shefs</Link>
           <Link href="/error" className="block px-4 lg:px-0 hover:text-[#FF9F0D]">signup</Link>
         </nav>

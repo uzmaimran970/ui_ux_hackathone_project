@@ -11,9 +11,8 @@ import Testimonials from "../components/testimonals"
 import Heading from "../components/heading"
 import Banner from "../components/banner"
 import Blog from "../components/blog"
-import Footer from "../components/footer1"
-import Footer2 from "../components/footer2"
-import Footer3 from "../components/footer3"
+
+import Whywecho from "../components/whywecho"
 
 const page = () => {
   return (
@@ -24,18 +23,19 @@ const page = () => {
       <Foodcatagory/>
 
       <Choseus/>
+      <Whywecho/>
       <Cta/>
       
       <Manu/>
+     
+    
       <Ourteam/>
   
       < Heading/>
       <Testimonials/>
       <Banner/>
       <Blog/>
-      <Footer/>
-      <Footer2/>
-      <Footer3/>
+
 
 
 
