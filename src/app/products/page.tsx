@@ -1,9 +1,15 @@
+
 import Mainbanner from "../../components/mainbanner"
 import Shopproducts from "../../components/shopproduct"
 import Shopsidebar from "../../components/shopsidebar"
 
 
-const Shop = () => {
+
+const product = async () => {
+
+
+  
+
 
   return (
     <>
@@ -16,4 +22,4 @@ const Shop = () => {
   )
 }
 
-export default Shop
+export default product;

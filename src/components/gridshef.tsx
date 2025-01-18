@@ -1,40 +1,60 @@
-import Image from 'next/image';
+"use client"
 
-export default function gridshef() {
-  
-  const chefNames = [
-    'Chef John',
-    'Chef Maria',
-    'Chef Ahmed',
-    'Chef Sarah',
-    'Chef Michael',
-    'Chef Priya',
-    'Chef Alex',
-    'Chef Sophie',
-    'Chef James',
-    'Chef Olivia',
-    'Chef David',
-    'Chef Emily',
-  ];
+import { client } from '@/sanity/lib/client';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+
+export default function Gridshef() {
+  const [chefs, setChefs] = useState<any[]>([]); 
+
+  // Function to fetch chef data
+  const getChefsData = async () => {
+    try {
+      // Fetch the chef data from Sanity using groq query
+      const chefsData = await client.fetch(`*[_type == "chef"]{
+        _id,
+        name,
+        position,
+        experience,
+        specialty,
+        description,
+        available,
+        "imageUrl": image.asset->url
+      }`);
+
+      // Save the fetched data into the chefs state
+      setChefs(chefsData);
+    } catch (error) {
+      console.error('Error fetching chefs data:', error);
+    }
+  };
+
+  // When the component mounts, fetch the data
+  useEffect(() => {
+    getChefsData();
+  }, []);
 
   return (
-    <div
-      className="w-full min-h-screen flex flex-col items-center justify-center bg-white bg-no-repeat pt-16"
-    >
+    <div className="w-full min-h-screen flex flex-col items-center justify-center bg-white bg-no-repeat pt-16">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-8 w-full px-4 sm:px-8 lg:px-16 xl:w-[1320px]">
         
-        {/* Mapping chef names */}
-        {chefNames.map((chef, index) => (
-          <div key={index} className="flex flex-col items-center">
+        {/* Rendering the fetched chef data */}
+        {chefs.map((chef) => (
+          <div key={chef._id} className="flex flex-col items-center">
+            {/* Displaying chef's image */}
             <Image
-              src={`/shf${index + 1}.svg`}
-              alt={`Chef ${index + 1}`}
-              width={305}
-              height={328}
+              src={chef.imageUrl}  // Image URL fetched from the Sanity query
+              alt={chef.name}      // Chef's name as alt text
+              width={305}           // Image width
+              height={328}          // Image height
               className="object-cover"
             />
-            <p className="text-[20px] text-[#333333] mt-4">{chef}</p> 
-            <p className="text-[18px] text-[#333333]">Chef</p>
+            {/* Displaying chef's name, position, and other details */}
+            <p className="text-[20px] text-[#333333] mt-4">{chef.name}</p>
+            <p className="text-[18px] text-[#333333]">{chef.position}</p>
+            <p className="text-[16px] text-[#333333]">{chef.specialty}</p>
+            <p className="text-[14px] text-[#333333]">{chef.experience} years of experience</p>
+            <p className="text-[14px] text-[#333333]">{chef.description}</p>
           </div>
         ))}
       </div>
