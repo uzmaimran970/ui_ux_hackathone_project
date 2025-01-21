@@ -1,17 +1,29 @@
-"use client"
+"use client";
 
 import { client } from '@/sanity/lib/client';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
+// Define the interface for Chef data
+interface Chef {
+  _id: string;
+  name: string;
+  position: string;
+  experience: number;
+  specialty: string;
+  description: string;
+  available: boolean;
+  imageUrl: string;
+}
+
 export default function Gridshef() {
-  const [chefs, setChefs] = useState<any[]>([]); 
+  const [chefs, setChefs] = useState<Chef[]>([]); 
 
   // Function to fetch chef data
   const getChefsData = async () => {
     try {
       // Fetch the chef data from Sanity using groq query
-      const chefsData = await client.fetch(`*[_type == "chef"]{
+      const chefsData: Chef[] = await client.fetch(`*[_type == "chef"]{
         _id,
         name,
         position,
