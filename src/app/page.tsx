@@ -8,7 +8,6 @@ import Cta from "../components/cta"
 import Manu from "../components/manu"
 import Ourteam from "../components/ourteam"
 import Testimonials from "../components/testimonals"
-import Heading from "../components/heading"
 import Banner from "../components/banner"
 import Blog from "../components/blog"
 
@@ -31,7 +30,7 @@ const page = () => {
     
       <Ourteam/>
   
-      < Heading/>
+    
       <Testimonials/>
       <Banner/>
       <Blog/>

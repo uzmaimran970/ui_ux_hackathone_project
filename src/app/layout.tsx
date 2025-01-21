@@ -5,6 +5,7 @@ import Footer1 from "../components/footer1"
 import Footer2 from "../components/footer2"
 import Footer3 from "../components/footer3"
 
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",

@@ -96,7 +96,7 @@ const HomeWhyUs = () => {
             <li className="text-center">
               <div className="bg-orange-400 p-5 mb-2 w-20 h-20 rounded-lg shadow-md flex items-center justify-center">
                 <Image
-                  src="/assets/burger.png"
+                  src="/whyCookie.svg"
                   alt="Burger"
                   width={50}
                   height={50}
@@ -109,7 +109,7 @@ const HomeWhyUs = () => {
             <li className="text-center">
               <div className="bg-orange-400 p-5 mb-2 w-20 h-20 rounded-lg shadow-md flex items-center justify-center">
                 <Image
-                  src="/assets/Wine.png"
+                  src="/whyHamburger.svg"
                   alt="Wine"
                   width={50}
                   height={50}
@@ -122,7 +122,7 @@ const HomeWhyUs = () => {
             <li className="text-center">
               <div className="bg-orange-400 p-5 mb-2 w-20 h-20 rounded-lg shadow-md flex items-center justify-center">
                 <Image
-                  src="/assets/Cookie.png"
+                  src="whyWine.svg"
                   alt="Cookie"
                   width={50}
                   height={50}

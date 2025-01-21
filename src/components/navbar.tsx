@@ -50,7 +50,7 @@ const Navbar = () => {
           </div> */}
           <Link href="/blog" className="block px-4 lg:px-0 hover:text-[#FF9F0D]">Blog</Link>
           <Link href="/ourshef" className="block px-4 lg:px-0 hover:text-[#FF9F0D]">Shefs</Link>
-          <Link href="/error" className="block px-4 lg:px-0 hover:text-[#FF9F0D]">signup</Link>
+          <Link href="/products" className="block px-4 lg:px-0 hover:text-[#FF9F0D]">shop</Link>
         </nav>
 
         

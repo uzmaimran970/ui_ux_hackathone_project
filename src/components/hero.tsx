@@ -1,6 +1,7 @@
 import { Great_Vibes } from "next/font/google";
 import Image from "next/image";
 import foodImage from "../../public/Image.svg";
+import Link from "next/link";
 
 const greatVibes = Great_Vibes({
   subsets: ["latin"],
@@ -25,9 +26,10 @@ const HeroSection = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Varius sed
             pharetra dictum neque massa congue.
           </p>
+          <Link href="/manu">
           <button className="bg-[#FF9F0D] text-black px-6 py-3 rounded-[30px] font-semibold hover:bg-yellow-600">
             See Menu
-          </button>
+          </button></Link>
         </div>
 
         {/* Right Image */}

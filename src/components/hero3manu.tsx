@@ -1,63 +1,103 @@
-export default function StarterMenu() {
-    return (
-        <div className="w-full max-w-[1320px] h-auto bg-white flex flex-col lg:flex-row items-center mx-auto pt-[150px] lg:pt-[100px] pb-[100px] px-4">
-            {/* Left Content */}
-            <div className="lg:mr-8 pt-[100px] lg:pt-[100px] px-4">
-                {/* Heading */}
-                <h1 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bold mb-8 text-center lg:text-left">Main Course</h1>
+"use client";
 
-                {/* Menu Items */}
-                <div className="space-y-4">
-                    {/* Item 1 */}
-                    <div className="w-full max-w-[769px] h-auto border-b-2 p-4 flex flex-col sm:flex-row justify-between items-center text-center sm:text-left">
-                        <div>
-                            <h2 className="text-[20px] sm:text-[24px] leading-[28px] sm:leading-[32px] font-bold">Optic Big Breakfast Combo Menu</h2>
-                            <p className="text-[14px] sm:text-[16px] text-[#4F4F4F]">Deliciously grilled with a smoky flavor.</p>
-                            <p className="text-[14px] sm:text-[16px] text-[#4F4F4F]">560 CAL</p>
-                        </div>
-                        <p className="text-[20px] sm:text-[24px] font-bold text-orange-500 mt-2 sm:mt-0 sm:ml-16">$32</p>
-                    </div>
+import { client } from "@/sanity/lib/client"; // Assuming you have already configured your Sanity client
+import React, { useEffect, useState } from "react";
 
-                    {/* Item 2 */}
-                    <div className="w-full max-w-[769px] h-auto border-b-2 p-4 flex flex-col sm:flex-row justify-between items-center text-center sm:text-left">
-                        <div>
-                            <h2 className="text-[20px] sm:text-[24px] leading-[28px] sm:leading-[32px] font-bold">Cashew Chicken With Stir-Fry</h2>
-                            <p className="text-[14px] sm:text-[16px] text-[#4F4F4F]">Served with a sesame-soy glaze.</p>
-                            <p className="text-[14px] sm:text-[16px] text-[#4F4F4F]">420 CAL</p>
-                        </div>
-                        <p className="text-[20px] sm:text-[24px] font-bold text-orange-500 mt-2 sm:mt-0 sm:ml-16">$28</p>
-                    </div>
-
-                    {/* Item 3 */}
-                    <div className="w-full max-w-[769px] h-auto border-b p-4 flex flex-col sm:flex-row justify-between items-center text-center sm:text-left">
-                        <div>
-                            <h2 className="text-[20px] sm:text-[24px] leading-[28px] sm:leading-[32px] font-bold">Cashew Chicken With Stir-Fry</h2>
-                            <p className="text-[14px] sm:text-[16px] text-[#4F4F4F]">Berries and creme tart</p>
-                            <p className="text-[14px] sm:text-[16px] text-[#4F4F4F]">610 CAL</p>
-                        </div>
-                        <p className="text-[20px] sm:text-[24px] font-bold text-orange-500 mt-2 sm:mt-0 sm:ml-16">$35</p>
-                    </div>
-
-                    {/* Item 4 */}
-                    <div className="w-full max-w-[769px] h-auto border-b-2 p-4 flex flex-col sm:flex-row justify-between items-center text-center sm:text-left">
-                        <div>
-                            <h2 className="text-[20px] sm:text-[24px] leading-[28px] sm:leading-[32px] font-bold">Spicy Vegan Potato Curry</h2>
-                            <p className="text-[14px] sm:text-[16px] text-[#4F4F4F]">Fresh shrimp in garlic butter sauce.</p>
-                            <p className="text-[14px] sm:text-[16px] text-[#4F4F4F]">490 CAL</p>
-                        </div>
-                        <p className="text-[20px] sm:text-[24px] font-bold text-orange-500 mt-2 sm:mt-0 sm:ml-16">$26</p>
-                    </div>
-                </div>
-            </div>
-
-            {/* Right Image */}
-            <div className="relative flex-shrink-0 pt-[50px] lg:pt-[100px] max-w-full h-auto">
-                <img
-                    src="/manu2.svg"
-                    alt="Food Item"
-                    className="object-cover w-full sm:w-[400px] md:w-[500px] lg:w-auto h-auto"
-                />
-            </div>
-        </div>
-    );
+// Define the type for your starter menu items
+interface StarterMenuItem {
+  _id: string;
+  name: string;
+  price: number;
+  calories: number;
+  description: string;
+  image: string;
 }
+
+const StarterMenu: React.FC = () => {
+  const [menuItems, setMenuItems] = useState<StarterMenuItem[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  // GROQ query to fetch the starter menu data
+  const query = `*[_type == "starterMenu"] {
+    _id,
+    name,
+    price,
+    calories,
+    description,
+    "image": image.asset->url
+  }`;
+
+  const fetchMenuItems = async () => {
+    try {
+      const data: StarterMenuItem[] = await client.fetch(query);
+      setMenuItems(data);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching menu items:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchMenuItems();
+  }, []);
+
+  if (loading) {
+    return <p className="text-center mt-10">Loading menu items...</p>;
+  }
+
+  return (
+    <div className="w-full max-w-[1320px] h-auto bg-white flex flex-col lg:flex-row items-center mx-auto pt-[60px] lg:pt-[180px] px-4">
+      {/* Left Image */}
+      <div className="relative flex-shrink-0 pt-[40px] lg:pt-[100px]">
+        <img
+          src="/hero2.svg"
+          alt="Food Item"
+          width={448}
+          height={626}
+          className="object-cover w-full max-w-[300px] sm:max-w-[400px] lg:max-w-none"
+        />
+      </div>
+
+      {/* Right Content */}
+      <div className="lg:ml-8 pt-[40px] lg:pt-[100px]">
+        {/* Heading */}
+        <h1 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bold mb-6 lg:mb-8 text-center lg:text-left">
+          Starter Menu
+        </h1>
+
+        {/* Menu Items */}
+        <div className="space-y-4">
+          {menuItems.length === 0 ? (
+            <div className="text-center text-xl font-bold text-red-600">
+              No menu items available.
+            </div>
+          ) : (
+            menuItems.map((item) => (
+              <div
+                key={item._id}
+                className="w-full lg:w-[769px] h-auto border-b-2 p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center"
+              >
+                <div>
+                  <h2 className="text-[20px] sm:text-[24px] leading-[28px] sm:leading-[32px] font-bold">
+                    {item.name}
+                  </h2>
+                  <p className="text-[14px] sm:text-[16px] text-[#4F4F4F]">
+                    {item.description}
+                  </p>
+                  <p className="text-[14px] sm:text-[16px] text-[#4F4F4F]">
+                    {item.calories} CAL
+                  </p>
+                </div>
+                <p className="text-[20px] sm:text-[24px] font-bold text-orange-500 mt-2 sm:mt-0">
+                  ${item.price}
+                </p>
+              </div>
+            ))
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default StarterMenu;

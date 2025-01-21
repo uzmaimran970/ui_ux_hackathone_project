@@ -31,7 +31,9 @@ export default function Navbar() {
         <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-8 p-4 lg:p-0">
           <a href="/" className="text-[16px] lg:text-[18px] hover:text-[#FF9F0D]">Home</a>
           <a href="/manu" className="text-[16px] lg:text-[18px] hover:text-[#FF9F0D]">Menu</a>
+          <a href="/blog" className="text-[16px] lg:text-[18px] hover:text-[#FF9F0D]">blog</a>
           <a href="/signup" className="text-[16px] lg:text-[18px] hover:text-[#FF9F0D]">contact</a>
+          <a href="/products" className="text-[16px] lg:text-[18px] hover:text-[#FF9F0D]">shop</a>
           <a href="/pages" className="text-[16px] lg:text-[18px] hover:text-[#FF9F0D]">Pages</a>
           <a href="/ourshef" className="text-[16px] lg:text-[18px] hover:text-[#FF9F0D]">Shefs</a>
           <a href="/error" className="text-[16px] lg:text-[18px] hover:text-[#FF9F0D]">signup</a>

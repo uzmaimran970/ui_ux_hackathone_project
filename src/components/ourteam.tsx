@@ -9,7 +9,9 @@ const greatVibes = Great_Vibes({
 export default function OurTeam() {
   return (
     <div
-      className="w-full h-screen flex flex-col items-center justify-center bg-black bg-no-repeat pt-[1200px] md:pt-[200px] pb-[300px] md:mb-0"
+      className="w-full h-screen flex flex-col items-center justify-center bg-black bg-no-repeat pt-[1200px] sm:pt-[1400px] md:pt-[200px] pb-[1400px] md:pb-[300px]"
+
+
       style={{
         backgroundImage: "url('/leaf.svg')",
         backgroundSize: '444px 532px',

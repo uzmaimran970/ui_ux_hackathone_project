@@ -3,10 +3,10 @@ import Navbarmanu from "../../components/navbarmanu"
 import Mainbanner from "../../components/mainbanner"
 
 import Errorsignin from "../../components/errorsignin"
-import { fetchData } from '@/services/mockapi'
+
 
 const errorpage = async () => {
-  await fetchData()
+  
   return (
     <div>
       <Navbarmanu/>
