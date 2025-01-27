@@ -10,7 +10,7 @@ const page = () => {
     <div>
         <Navbarmanu/>
         <Mainbanner name='Our Shefs' pageName='our shefs'/>
-        <Gridshef/>
+        <Gridshef />
         
     
 
